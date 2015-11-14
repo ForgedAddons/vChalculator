@@ -1,3 +1,5 @@
+local addon, ns = ...
+
 SLASH_VCHALCULATOR1 = "/="
 SLASH_VCHALCULATOR2 = "/chalc"
 SLASH_VCHALCULATOR3 = "/calc"
@@ -9,9 +11,7 @@ SlashCmdList["VCHALCULATOR"] = function(msg)
 	RunScript(vChalculatorGlobal.."=("..msg..")")
 	r = getglobal(vChalculatorGlobal)
 	if (r ~= nil) then
-		if (DEFAULT_CHAT_FRAME) then 
-			DEFAULT_CHAT_FRAME:AddMessage("|cffc7c7cfv|rChalculator: "..msg.."|cff666666 = |r"..r)
-		end
+		ns.Printf("%s = %s", msg, r)
 	end
 	return r
 end
